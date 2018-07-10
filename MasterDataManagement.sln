@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterDataManagement", "MasterDataManagement\MasterDataManagement.csproj", "{EF808B74-7AF7-4443-B4BE-1574D364F5FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF808B74-7AF7-4443-B4BE-1574D364F5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF808B74-7AF7-4443-B4BE-1574D364F5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF808B74-7AF7-4443-B4BE-1574D364F5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF808B74-7AF7-4443-B4BE-1574D364F5FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2845206E-72C8-4804-A936-8D8122EDF688}
+	EndGlobalSection
+EndGlobal
