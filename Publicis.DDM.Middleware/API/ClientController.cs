@@ -19,7 +19,7 @@ namespace Publicis.DDM.Middleware.API
         [HttpGet]
         public List<Models.Client> GetAll()
         {
-			return (new Provider.MongoDBProvider<Models.Client>()).GetAll("Clients");
+			throw new NotImplementedException();
 		}
 
         /// <summary>

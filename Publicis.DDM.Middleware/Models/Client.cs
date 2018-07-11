@@ -6,8 +6,8 @@ using System.Web;
 
 namespace Publicis.DDM.Middleware.Models
 {
- 
-    public class Client : Entity
+
+	public class Client : Entity
 	{
 		[BsonElement("name")]
 		public string Name
