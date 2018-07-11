@@ -9,6 +9,7 @@ using System.IO;
 
 namespace Publicis.DDM.Middleware
 {
+    #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class SwaggerConfig
     {
         public static void Register()

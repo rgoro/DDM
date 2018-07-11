@@ -11,6 +11,7 @@ using System.Threading;
 [assembly: OwinStartup(typeof(Publicis.DDM.Middleware.Startup))]
 namespace Publicis.DDM.Middleware
 {
+    #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -34,11 +35,6 @@ namespace Publicis.DDM.Middleware
             info.NumberFormat.NumberDecimalDigits = 2;
             Thread.CurrentThread.CurrentCulture = info;
             Thread.CurrentThread.CurrentUICulture = info;
-        }
-
-        private string GetXmlCommentsPath()
-        {
-            return System.String.Format(@"{0}\bin\ApplicationName.XML", AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }
