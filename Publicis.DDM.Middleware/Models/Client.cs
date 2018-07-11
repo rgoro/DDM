@@ -9,13 +9,6 @@ namespace Publicis.DDM.Middleware.Models
  
     public class Client : IEntity
 	{
-		[BsonId]
-		public int ClientId
-		{
-			get;
-			set;
-		}
-
 		[BsonElement("name")]
 		public string Name
 		{
@@ -31,5 +24,8 @@ namespace Publicis.DDM.Middleware.Models
 		}
 
 		public string EntityName { get; set; }
+
+		[BsonId]
+		public int ClientId { get; set; }
 	}
 }

@@ -26,26 +26,48 @@ namespace Publicis.DDM.Middleware.Provider
 			collection.InsertOne(entity);
 		}
 
-		public Models.Client FindbyName(string name, string entity)
+		public T GetbyId(int id, string entity)
 		{
 			//Get Database
 			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
 			//Get Collection
-			IMongoCollection<Models.Client> collection = db.GetCollection<Models.Client>(entity);
+			IMongoCollection<T> collection = db.GetCollection<T>(entity);
 
-			Models.Client clientfrommongo = collection.Find(client => client.Name == name).ToList<Models.Client>().First();
+			T clientfrommongo = collection.Find(client => client.ClientId == id).ToList<T>().First();
 			return clientfrommongo;
 		}
 
-		public Models.Client Find(string filter, string entity)
+		public T Find(string filter, string entity)
 		{
 			//Get Database
 			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
 			//Get Collection
-			IMongoCollection<Models.Client> collection = db.GetCollection<Models.Client>(entity);
+			IMongoCollection<T> collection = db.GetCollection<T>(entity);
 
-			Models.Client clientfrommongo = collection.Find(filter).ToList<Models.Client>().First();
+			T clientfrommongo = collection.Find(filter).ToList<T>().First();
 			return clientfrommongo;
+		}
+
+		public void Update(T entity)
+		{
+			//Get Database
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
+			//Get Collection
+			IMongoCollection<T> collection = db.GetCollection<T>(entity.EntityName);
+
+			var filter = Builders<T>.Filter.Eq(s => s.ClientId, entity.ClientId);
+			collection.ReplaceOne(filter, entity);
+		}
+
+		public void Delete(T entity)
+		{
+			//Get Database
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
+			//Get Collection
+			IMongoCollection<T> collection = db.GetCollection<T>(entity.EntityName);
+
+			var filter = Builders<T>.Filter.Eq(s => s.ClientId, entity.ClientId);
+			collection.DeleteOne(filter);
 		}
 	}
 }
