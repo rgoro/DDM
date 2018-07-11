@@ -7,15 +7,8 @@ using System.Web;
 namespace Publicis.DDM.Middleware.Models
 {
  
-    public class Client
+    public class Client : IEntity
 	{
-		[BsonId]
-		public int ClientId
-		{
-			get;
-			set;
-		}
-
 		[BsonElement("name")]
 		public string Name
 		{
@@ -29,5 +22,10 @@ namespace Publicis.DDM.Middleware.Models
 			get;
 			set;
 		}
+
+		public string EntityName { get; set; }
+
+		[BsonId]
+		public int ClientId { get; set; }
 	}
 }

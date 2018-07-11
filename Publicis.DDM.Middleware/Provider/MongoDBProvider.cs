@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Publicis.DDM.Middleware.Provider
 {
-	public class MongoDBProvider
+	public class MongoDBProvider<T> where T : Models.IEntity
 	{
 		private MongoClient GetMongoClient()
 		{
@@ -16,25 +16,58 @@ namespace Publicis.DDM.Middleware.Provider
 			return mongoclient;
 		}
 
-		public void InsertClient(Models.Client client)
+		public void Insert(T entity)
 		{
 			//Get Database
-			IMongoDatabase db = this.GetMongoClient().GetDatabase("Dolores");
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
 			//Get Collection
-			IMongoCollection<Models.Client> collection = db.GetCollection<Models.Client>("Client");
+			IMongoCollection<T> collection = db.GetCollection<T>(entity.EntityName);
 
-			collection.InsertOne(client);
+			collection.InsertOne(entity);
 		}
 
-		public Models.Client FindbyName(string name)
+		public T GetbyId(int id, string entity)
 		{
 			//Get Database
-			IMongoDatabase db = this.GetMongoClient().GetDatabase("Dolores");
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
 			//Get Collection
-			IMongoCollection<Models.Client> collection = db.GetCollection<Models.Client>("Client");
+			IMongoCollection<T> collection = db.GetCollection<T>(entity);
 
-			Models.Client clientfrommongo = collection.Find(client => client.Name == name).ToList<Models.Client>().Last();
+			T clientfrommongo = collection.Find(client => client.ClientId == id).ToList<T>().First();
 			return clientfrommongo;
+		}
+
+		public T Find(string filter, string entity)
+		{
+			//Get Database
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
+			//Get Collection
+			IMongoCollection<T> collection = db.GetCollection<T>(entity);
+
+			T clientfrommongo = collection.Find(filter).ToList<T>().First();
+			return clientfrommongo;
+		}
+
+		public void Update(T entity)
+		{
+			//Get Database
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
+			//Get Collection
+			IMongoCollection<T> collection = db.GetCollection<T>(entity.EntityName);
+
+			var filter = Builders<T>.Filter.Eq(s => s.ClientId, entity.ClientId);
+			collection.ReplaceOne(filter, entity);
+		}
+
+		public void Delete(T entity)
+		{
+			//Get Database
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
+			//Get Collection
+			IMongoCollection<T> collection = db.GetCollection<T>(entity.EntityName);
+
+			var filter = Builders<T>.Filter.Eq(s => s.ClientId, entity.ClientId);
+			collection.DeleteOne(filter);
 		}
 	}
 }
