@@ -16,7 +16,7 @@ namespace Publicis.DDM.Middleware.Provider
 			return mongoclient;
 		}
 
-		public void InsertClient(Publicis.DDM.Middleware.Models.Client client)
+		public void InsertClient(Models.Client client)
 		{
 			//Get Database
 			IMongoDatabase db = this.GetMongoClient().GetDatabase("Dolores");
