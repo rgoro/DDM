@@ -17,10 +17,10 @@ namespace Publicis.DDM.Middleware.API
         /// </summary>
         /// <returns>A list of Clients</returns>
         [HttpGet]
-        public HttpResponseMessage GetAll()
+        public List<Models.Client> GetAll()
         {
-            throw new NotImplementedException();
-        }
+			return (new Provider.MongoDBProvider<Models.Client>()).GetAll("Clients");
+		}
 
         /// <summary>
         /// Find a client by ID

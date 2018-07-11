@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Publicis.DDM.Middleware.Provider
 {
-	public class MongoDBProvider<T> where T : Models.IEntity
+	public class MongoDBProvider<T> where T : Models.Entity
 	{
 		private MongoClient GetMongoClient()
 		{
@@ -35,6 +35,16 @@ namespace Publicis.DDM.Middleware.Provider
 
 			T clientfrommongo = collection.Find(client => client.ClientId == id).ToList<T>().First();
 			return clientfrommongo;
+		}
+
+		public List<T> GetAll(string entity)
+		{
+			//Get Database
+			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
+			//Get Collection
+			IMongoCollection<T> collection = db.GetCollection<T>(entity);
+
+			return collection.Find(a => true).ToList<T>();
 		}
 
 		public T Find(string filter, string entity)

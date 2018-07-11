@@ -6,12 +6,13 @@ using System.Web;
 
 namespace Publicis.DDM.Middleware.Models
 {
-	public interface IEntity
+	public class Entity
 	{
-		string EntityName { get; set; }
+		[BsonIgnore]
+		public string EntityName { get; set; }
 
 		[BsonId]
-		int ClientId
+		public int ClientId
 		{
 			get;
 			set;
