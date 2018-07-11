@@ -12,7 +12,10 @@ namespace Publicis.DDM.Middleware.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+			Models.Client _client = (new Provider.MongoDBProvider<Models.Client>()).Find("{ name : 'Nico' }", "Client");
+			ViewBag.Title = _client.Name;
+
+			return View();
         }
     }
 }
