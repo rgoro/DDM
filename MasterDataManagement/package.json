@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@angular/cli": "^6.0.8",
     "angular-2": "^1.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
