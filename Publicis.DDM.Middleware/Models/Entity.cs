@@ -6,13 +6,16 @@ using System.Web;
 
 namespace Publicis.DDM.Middleware.Models
 {
+    /// <summary>
+    /// Generic entity
+    /// </summary>
 	public class Entity
 	{
-		[BsonIgnore]
-		public string EntityName { get; set; }
-
-		[BsonId]
-		public int ClientId
+        /// <summary>
+        /// Generic Id
+        /// </summary>
+		[BsonId, Newtonsoft.Json.JsonIgnore]
+		public MongoDB.Bson.ObjectId Id
 		{
 			get;
 			set;

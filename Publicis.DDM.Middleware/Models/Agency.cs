@@ -7,22 +7,22 @@ using System.Web;
 namespace Publicis.DDM.Middleware.Models
 {
     /// <summary>
-    /// Client
+    /// Agency
     /// </summary>
-	public class Client : Entity
+	public class Agency : Entity
 	{
         /// <summary>
-        /// Client Id
+        /// Agency Id
         /// </summary>
-        [BsonElement("clientId"), BsonIgnore]
-        public MongoDB.Bson.ObjectId ClientId
+        [BsonElement("agencyId"), BsonIgnore]
+        public MongoDB.Bson.ObjectId AgencyId
         {
             get { return base.Id; }
             set { base.Id = value; }
         }
 
         /// <summary>
-        /// Client name
+        /// Agency name
         /// </summary>
 		[BsonElement("name")]
 		public string Name
@@ -32,7 +32,7 @@ namespace Publicis.DDM.Middleware.Models
 		}
 
         /// <summary>
-        /// Client attributes
+        /// Agency attributes
         /// </summary>
 		[BsonElement("values")]
 		public Dictionary<string, object> Values
