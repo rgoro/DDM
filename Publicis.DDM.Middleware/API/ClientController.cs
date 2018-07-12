@@ -61,7 +61,6 @@ namespace Publicis.DDM.Middleware.API
         /// <summary>
         /// Update a client
         /// </summary>
-        /// <param name="id"></param>
         /// <param name="client"></param>
         /// <returns></returns>
         [HttpPut]

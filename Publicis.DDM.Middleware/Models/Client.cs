@@ -6,9 +6,14 @@ using System.Web;
 
 namespace Publicis.DDM.Middleware.Models
 {
-
+    /// <summary>
+    /// Client
+    /// </summary>
 	public class Client : Entity
 	{
+        /// <summary>
+        /// Client name
+        /// </summary>
 		[BsonElement("name")]
 		public string Name
 		{
@@ -16,6 +21,9 @@ namespace Publicis.DDM.Middleware.Models
 			set;
 		}
 
+        /// <summary>
+        /// Client attributes
+        /// </summary>
 		[BsonElement("Values")]
 		public Dictionary<string, object> Values
 		{
