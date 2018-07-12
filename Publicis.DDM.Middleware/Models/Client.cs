@@ -12,6 +12,16 @@ namespace Publicis.DDM.Middleware.Models
 	public class Client : Entity
 	{
         /// <summary>
+        /// Client Id
+        /// </summary>
+        [BsonElement("clientId"), BsonIgnore]
+        public MongoDB.Bson.ObjectId ClientId
+        {
+            get { return base.Id; }
+            set { base.Id = value; }
+        }
+
+        /// <summary>
         /// Client name
         /// </summary>
 		[BsonElement("name")]
@@ -24,7 +34,7 @@ namespace Publicis.DDM.Middleware.Models
         /// <summary>
         /// Client attributes
         /// </summary>
-		[BsonElement("Values")]
+		[BsonElement("values")]
 		public Dictionary<string, object> Values
 		{
 			get;

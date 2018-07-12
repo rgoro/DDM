@@ -12,16 +12,10 @@ namespace Publicis.DDM.Middleware.Models
 	public class Entity
 	{
         /// <summary>
-        /// Internal name
+        /// Generic Id
         /// </summary>
-		[BsonIgnore]
-		public string EntityName { get; set; }
-
-        /// <summary>
-        /// Id
-        /// </summary>
-		[BsonId]
-		public int ClientId
+		[BsonId, Newtonsoft.Json.JsonIgnore]
+		public MongoDB.Bson.ObjectId Id
 		{
 			get;
 			set;

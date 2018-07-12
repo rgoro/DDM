@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Web;
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace Publicis.DDM.Middleware.Provider
 {
-	public class MongoDBProvider<T> where T : Models.Entity
-	{
+    public class MongoDBProvider<T> where T : Models.Entity
+    {
         private MongoClient mongoClient;
         private IMongoDatabase db;
+        private IMongoCollection<T> collection;
 
         private MongoClient MongoClient {
             get
@@ -48,55 +50,59 @@ namespace Publicis.DDM.Middleware.Provider
             }
         }
 
-		public void Insert(T entity)
-		{
-			IMongoCollection<T> collection = this.DB.GetCollection<T>(entity.EntityName);
+        public IMongoCollection<T> Collection
+        {
+            get
+            {
+                if (this.collection == null)
+                {
+                    return this.DB.GetCollection<T>(typeof(T).Name);
+                }
 
-			collection.InsertOne(entity);
+                return this.collection;
+            }
+            set
+            {
+                this.collection = value;
+            }
+        }
+
+        public void Insert(T entity)
+		{
+            entity.Id = ObjectId.GenerateNewId();
+
+            this.Collection.InsertOne(entity);
+
+            return;
 		}
 
-		public T GetbyId(int id, string entity)
+		public T GetbyId(string id)
 		{
-			//Get Collection
-			IMongoCollection<T> collection = this.DB.GetCollection<T>(entity);
-
-			T clientfrommongo = collection.Find(client => client.ClientId == id).ToList<T>().First();
-			return clientfrommongo;
+            ObjectId objectId = ObjectId.Parse(id);
+			return this.Collection.Find(entity => entity.Id == objectId).ToList().First();
 		}
 
-		public List<T> GetAll(string entity)
+		public List<T> GetAll()
 		{
-			//Get Collection
-			IMongoCollection<T> collection = this.DB.GetCollection<T>(entity);
-
-			return collection.Find(a => true).ToList<T>();
+			return this.Collection.Find(a => true).ToList();
 		}
 
-		public List<T> Find(string filter, string entity)
+		public List<T> Find(string filter)
 		{
-			//Get Collection
-			IMongoCollection<T> collection = this.DB.GetCollection<T>(entity);
-
-			List<T> clientfrommongo = collection.Find(filter).ToList<T>();
-			return clientfrommongo;
+			return this.Collection.Find(filter).ToList<T>();
 		}
 
 		public void Update(T entity)
 		{
-			//Get Collection
-			IMongoCollection<T> collection = this.DB.GetCollection<T>(entity.EntityName);
-
-			var filter = Builders<T>.Filter.Eq(s => s.ClientId, entity.ClientId);
-			collection.ReplaceOne(filter, entity);
+			var filter = Builders<T>.Filter.Eq(s => s.Id, entity.Id);
+			this.Collection.ReplaceOne(filter, entity);
 		}
 
-		public void Delete(T entity)
+		public void Delete(string id)
 		{
-			//Get Collection
-			IMongoCollection<T> collection = this.DB.GetCollection<T>(entity.EntityName);
-
-			var filter = Builders<T>.Filter.Eq(s => s.ClientId, entity.ClientId);
-			collection.DeleteOne(filter);
+            ObjectId objectId = ObjectId.Parse(id);
+            var filter = Builders<T>.Filter.Eq(s => s.Id, objectId);
+			this.Collection.DeleteOne(filter);
 		}
 	}
 }

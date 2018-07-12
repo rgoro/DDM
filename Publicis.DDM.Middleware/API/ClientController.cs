@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -18,7 +19,7 @@ namespace Publicis.DDM.Middleware.API
         [HttpGet]
         public List<Models.Client> GetAll()
         {
-			return (new Provider.MongoDBProvider<Models.Client>()).GetAll("Client");
+			return (new Provider.MongoDBProvider<Models.Client>()).GetAll();
 		}
 
         /// <summary>
@@ -27,9 +28,9 @@ namespace Publicis.DDM.Middleware.API
         /// <param name="ClientId"></param>
         /// <returns>A single client</returns>
         [HttpGet]
-        public Models.Client GetById(int ClientId)
+        public Models.Client GetById(string ClientId)
         {
-			return (new Provider.MongoDBProvider<Models.Client>()).GetbyId(ClientId, "Client");
+			return (new Provider.MongoDBProvider<Models.Client>()).GetbyId(ClientId);
 		}
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace Publicis.DDM.Middleware.API
         [HttpGet]
         public List<Models.Client> Get(string filter)
         {
-			return (new Provider.MongoDBProvider<Models.Client>()).Find(filter, "Client");
+			return (new Provider.MongoDBProvider<Models.Client>()).Find(filter);
 		}
 
         /// <summary>
@@ -51,7 +52,6 @@ namespace Publicis.DDM.Middleware.API
         [HttpPost]
         public HttpResponseMessage Add([FromBody] Models.Client client)
         {
-			client.EntityName = "Client";
 			(new Provider.MongoDBProvider<Models.Client>()).Insert(client);
 			return Request.CreateResponse(HttpStatusCode.OK);
 
@@ -66,7 +66,6 @@ namespace Publicis.DDM.Middleware.API
         [HttpPut]
         public HttpResponseMessage Update([FromBody] Models.Client client)
         {
-			client.EntityName = "Client";
 			(new Provider.MongoDBProvider<Models.Client>()).Update(client);
 			return Request.CreateResponse(HttpStatusCode.OK);
 			//return Request.CreateErrorResponse(HttpStatusCode.BadRequest, new Exception("Error"));
@@ -78,14 +77,9 @@ namespace Publicis.DDM.Middleware.API
 		/// <param name="id"></param>
 		/// <returns></returns>
 		[HttpDelete]
-        public HttpResponseMessage Delete(int id)
+        public HttpResponseMessage Delete(string id)
         {
-			Models.Client client = new Models.Client()
-			{
-				ClientId = id,
-				EntityName = "Client"
-			};
-			(new Provider.MongoDBProvider<Models.Client>()).Delete(client);
+			(new Provider.MongoDBProvider<Models.Client>()).Delete(id);
 			return Request.CreateResponse(HttpStatusCode.OK);
 			//return Request.CreateErrorResponse(HttpStatusCode.BadRequest, new Exception("Error"));
 		}
