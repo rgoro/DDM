@@ -8,7 +8,6 @@ namespace Publicis.DDM.Middleware.Models
 {
 	public class Entity
 	{
-		[BsonIgnore]
 		public string EntityName { get; set; }
 
 		[BsonId]

@@ -16,9 +16,17 @@ namespace Publicis.DDM.Middleware.API
         /// </summary>
         /// <returns>A list of Clients</returns>
         [HttpGet]
-        public List<Models.Client> GetAll()
+        public HttpResponseMessage GetAll()
         {
-			return (new Provider.MongoDBProvider<Models.Client>()).GetAll("Client");
+			try
+			{
+				List<Models.Client> clients = (new Provider.MongoDBProvider<Models.Client>()).GetAll("Client");
+				return Request.CreateResponse(HttpStatusCode.OK, clients); 
+			}
+			catch (System.Exception ex) 
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+			}
 		}
 
         /// <summary>
@@ -27,9 +35,17 @@ namespace Publicis.DDM.Middleware.API
         /// <param name="ClientId"></param>
         /// <returns>A single client</returns>
         [HttpGet]
-        public Models.Client GetById(int ClientId)
+        public HttpResponseMessage GetById(int ClientId)
         {
-			return (new Provider.MongoDBProvider<Models.Client>()).GetbyId(ClientId, "Client");
+			try
+			{
+				Models.Client client = (new Provider.MongoDBProvider<Models.Client>()).GetbyId(ClientId, "Client");
+				return Request.CreateResponse(HttpStatusCode.OK, client);
+			}
+			catch (System.Exception ex)
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+			}
 		}
 
         /// <summary>
@@ -38,9 +54,17 @@ namespace Publicis.DDM.Middleware.API
         /// <param name="filter"></param>
         /// <returns>A list of clients matching the name</returns>
         [HttpGet]
-        public List<Models.Client> Get(string filter)
+        public HttpResponseMessage Get(string filter)
         {
-			return (new Provider.MongoDBProvider<Models.Client>()).Find(filter, "Client");
+			try
+			{
+				List<Models.Client> clients = (new Provider.MongoDBProvider<Models.Client>()).Find(filter, "Client");
+				return Request.CreateResponse(HttpStatusCode.OK, clients);
+			}
+			catch (System.Exception ex)
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+			}
 		}
 
         /// <summary>
@@ -51,26 +75,37 @@ namespace Publicis.DDM.Middleware.API
         [HttpPost]
         public HttpResponseMessage Add([FromBody] Models.Client client)
         {
-			client.EntityName = "Client";
-			(new Provider.MongoDBProvider<Models.Client>()).Insert(client);
-			return Request.CreateResponse(HttpStatusCode.OK);
-
-			//return Request.CreateErrorResponse(HttpStatusCode.BadRequest, new Exception("Error"));
+			try
+			{
+				client.EntityName = "Client";
+				(new Provider.MongoDBProvider<Models.Client>()).Insert(client);
+				return Request.CreateResponse(HttpStatusCode.OK);
+			}
+			catch (System.Exception ex)
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+			}
 		}
 
-        /// <summary>
-        /// Update a client
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="client"></param>
-        /// <returns></returns>
-        [HttpPut]
-        public HttpResponseMessage Update([FromBody] Models.Client client)
-        {
-			client.EntityName = "Client";
-			(new Provider.MongoDBProvider<Models.Client>()).Update(client);
-			return Request.CreateResponse(HttpStatusCode.OK);
-			//return Request.CreateErrorResponse(HttpStatusCode.BadRequest, new Exception("Error"));
+		/// <summary>
+		/// Update a client
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="client"></param>
+		/// <returns></returns>
+		[HttpPut]
+		public HttpResponseMessage Update([FromBody] Models.Client client)
+		{
+			try
+			{
+				client.EntityName = "Client";
+				(new Provider.MongoDBProvider<Models.Client>()).Update(client);
+				return Request.CreateResponse(HttpStatusCode.OK);
+			}
+			catch (System.Exception ex)
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+			}
 		}
 
 		/// <summary>
@@ -79,16 +114,22 @@ namespace Publicis.DDM.Middleware.API
 		/// <param name="id"></param>
 		/// <returns></returns>
 		[HttpDelete]
-        public HttpResponseMessage Delete(int id)
-        {
-			Models.Client client = new Models.Client()
+		public HttpResponseMessage Delete(int id)
+		{
+			try
 			{
-				ClientId = id,
-				EntityName = "Client"
-			};
-			(new Provider.MongoDBProvider<Models.Client>()).Delete(client);
-			return Request.CreateResponse(HttpStatusCode.OK);
-			//return Request.CreateErrorResponse(HttpStatusCode.BadRequest, new Exception("Error"));
+				Models.Client client = new Models.Client()
+				{
+					ClientId = id,
+					EntityName = "Client"
+				};
+				(new Provider.MongoDBProvider<Models.Client>()).Delete(client);
+				return Request.CreateResponse(HttpStatusCode.OK);
+			}
+			catch (System.Exception ex)
+			{
+				return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+			}
 		}
 	}
 }
