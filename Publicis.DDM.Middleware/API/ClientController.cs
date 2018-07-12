@@ -12,6 +12,26 @@ namespace Publicis.DDM.Middleware.API
     /// </summary>
     public class ClientController : ApiController
     {
+        private Provider.MongoDBProvider<Models.Client> provider;
+
+        private Provider.MongoDBProvider<Models.Client> Provider
+        {
+            get
+            {
+                if (this.provider == null)
+                {
+                    this.provider = new Provider.MongoDBProvider<Models.Client>();
+                }
+
+                return this.provider;
+            }
+
+            set
+            {
+                this.provider = value;
+            }
+        }
+
         /// <summary>
         /// Get all clients on the DB
         /// </summary>
@@ -21,7 +41,7 @@ namespace Publicis.DDM.Middleware.API
         {
 			try
 			{
-				List<Models.Client> clients = (new Provider.MongoDBProvider<Models.Client>()).GetAll();
+				List<Models.Client> clients = this.Provider.GetAll();
 				return Request.CreateResponse(HttpStatusCode.OK, clients); 
 			}
 			catch (System.Exception ex) 
@@ -40,7 +60,7 @@ namespace Publicis.DDM.Middleware.API
         {
 			try
 			{
-				Models.Client client = (new Provider.MongoDBProvider<Models.Client>()).GetbyId(ClientId);
+				Models.Client client = this.Provider.GetbyId(ClientId);
 				return Request.CreateResponse(HttpStatusCode.OK, client);
 			}
 			catch (Exception ex)
@@ -59,7 +79,7 @@ namespace Publicis.DDM.Middleware.API
         {
 			try
 			{
-				List<Models.Client> clients = (new Provider.MongoDBProvider<Models.Client>()).Find(filter);
+				List<Models.Client> clients = this.Provider.Find(filter);
 				return Request.CreateResponse(HttpStatusCode.OK, clients);
 			}
 			catch (System.Exception ex)
@@ -78,7 +98,7 @@ namespace Publicis.DDM.Middleware.API
         {
 			try
 			{
-			    ObjectId newId = (new Provider.MongoDBProvider<Models.Client>()).Insert(client);
+			    ObjectId newId = this.Provider.Insert(client);
 			    return Request.CreateResponse(HttpStatusCode.OK, newId);
 			}
 			catch (System.Exception ex)
@@ -97,7 +117,7 @@ namespace Publicis.DDM.Middleware.API
 		{
 			try
 			{
-				(new Provider.MongoDBProvider<Models.Client>()).Update(client);
+                this.Provider.Update(client);
 				return Request.CreateResponse(HttpStatusCode.OK);
 			}
 			catch (System.Exception ex)
@@ -116,7 +136,7 @@ namespace Publicis.DDM.Middleware.API
         {
 			try
 			{
-				(new Provider.MongoDBProvider<Models.Client>()).Delete(id);
+                this.Provider.Delete(id);
 				return Request.CreateResponse(HttpStatusCode.OK);
 			}
 			catch (System.Exception ex)
