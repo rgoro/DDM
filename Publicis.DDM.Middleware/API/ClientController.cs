@@ -78,8 +78,8 @@ namespace Publicis.DDM.Middleware.API
         {
 			try
 			{
-			    (new Provider.MongoDBProvider<Models.Client>()).Insert(client);
-			    return Request.CreateResponse(HttpStatusCode.OK);
+			    ObjectId newId = (new Provider.MongoDBProvider<Models.Client>()).Insert(client);
+			    return Request.CreateResponse(HttpStatusCode.OK, newId);
 			}
 			catch (System.Exception ex)
 			{

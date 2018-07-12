@@ -67,13 +67,13 @@ namespace Publicis.DDM.Middleware.Provider
             }
         }
 
-        public void Insert(T entity)
+        public ObjectId Insert(T entity)
 		{
             entity.Id = ObjectId.GenerateNewId();
 
             this.Collection.InsertOne(entity);
 
-            return;
+            return entity.Id;
 		}
 
 		public T GetbyId(string id)
