@@ -92,9 +92,11 @@ namespace Publicis.DDM.Middleware.Provider
 			return this.Collection.Find(filter).ToList<T>();
 		}
 
-		public void Update(T entity)
+		public void Update(string id, T entity)
 		{
-			var filter = Builders<T>.Filter.Eq(s => s.Id, entity.Id);
+            ObjectId objectId = ObjectId.Parse(id);
+            entity.Id = objectId;
+            var filter = Builders<T>.Filter.Eq(s => s.Id, objectId);
 			this.Collection.ReplaceOne(filter, entity);
 		}
 

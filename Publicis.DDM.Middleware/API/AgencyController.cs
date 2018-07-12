@@ -8,19 +8,19 @@ using System.Web.Http;
 namespace Publicis.DDM.Middleware.API
 {
     /// <summary>
-    /// Client operations
+    /// Agency operations
     /// </summary>
-    public class ClientController : ApiController
+    public class AgencyController : ApiController
     {
-        private Provider.MongoDBProvider<Models.Client> provider;
+        private Provider.MongoDBProvider<Models.Agency> provider;
 
-        private Provider.MongoDBProvider<Models.Client> Provider
+        private Provider.MongoDBProvider<Models.Agency> Provider
         {
             get
             {
                 if (this.provider == null)
                 {
-                    this.provider = new Provider.MongoDBProvider<Models.Client>();
+                    this.provider = new Provider.MongoDBProvider<Models.Agency>();
                 }
 
                 return this.provider;
@@ -33,16 +33,16 @@ namespace Publicis.DDM.Middleware.API
         }
 
         /// <summary>
-        /// Get all clients on the DB
+        /// Get all agencys on the DB
         /// </summary>
-        /// <returns>A list of Clients</returns>
+        /// <returns>A list of Agencys</returns>
         [HttpGet]
         public HttpResponseMessage GetAll()
         {
 			try
 			{
-				List<Models.Client> clients = this.Provider.GetAll();
-				return Request.CreateResponse(HttpStatusCode.OK, clients); 
+				List<Models.Agency> agencys = this.Provider.GetAll();
+				return Request.CreateResponse(HttpStatusCode.OK, agencys); 
 			}
 			catch (System.Exception ex) 
 			{
@@ -51,17 +51,17 @@ namespace Publicis.DDM.Middleware.API
 		}
 
         /// <summary>
-        /// Find a client by ID
+        /// Find a agency by ID
         /// </summary>
-        /// <param name="ClientId"></param>
-        /// <returns>A single client</returns>
+        /// <param name="AgencyId"></param>
+        /// <returns>A single agency</returns>
         [HttpGet]
-        public HttpResponseMessage GetById(string ClientId)
+        public HttpResponseMessage GetById(string AgencyId)
         {
 			try
 			{
-				Models.Client client = this.Provider.GetbyId(ClientId);
-				return Request.CreateResponse(HttpStatusCode.OK, client);
+				Models.Agency agency = this.Provider.GetbyId(AgencyId);
+				return Request.CreateResponse(HttpStatusCode.OK, agency);
 			}
 			catch (Exception ex)
 			{
@@ -70,17 +70,17 @@ namespace Publicis.DDM.Middleware.API
         }
 
         /// <summary>
-        /// Get clients by name
+        /// Get agencys by name
         /// </summary>
         /// <param name="filter"></param>
-        /// <returns>A list of clients matching the name</returns>
+        /// <returns>A list of agencys matching the name</returns>
         [HttpGet]
         public HttpResponseMessage Get(string filter)
         {
 			try
 			{
-				List<Models.Client> clients = this.Provider.Find(filter);
-				return Request.CreateResponse(HttpStatusCode.OK, clients);
+				List<Models.Agency> agencys = this.Provider.Find(filter);
+				return Request.CreateResponse(HttpStatusCode.OK, agencys);
 			}
 			catch (System.Exception ex)
 			{
@@ -89,16 +89,16 @@ namespace Publicis.DDM.Middleware.API
 		}
 
         /// <summary>
-        /// Add a client
+        /// Add a agency
         /// </summary>
-        /// <param name="client"></param>
-        /// <returns>The new client's ID</returns>
+        /// <param name="agency"></param>
+        /// <returns>The new agency's ID</returns>
         [HttpPost]
-        public HttpResponseMessage Add([FromBody] Models.Client client)
+        public HttpResponseMessage Add([FromBody] Models.Agency agency)
         {
 			try
 			{
-			    ObjectId newId = this.Provider.Insert(client);
+			    ObjectId newId = this.Provider.Insert(agency);
 			    return Request.CreateResponse(HttpStatusCode.OK, newId);
 			}
 			catch (System.Exception ex)
@@ -108,17 +108,17 @@ namespace Publicis.DDM.Middleware.API
 		}
 
         /// <summary>
-        /// Update a client
+        /// Update a agency
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="client"></param>
+        /// <param name="agency"></param>
         /// <returns></returns>
         [HttpPut]
-		public HttpResponseMessage Update(string id, [FromBody] Models.Client client)
+		public HttpResponseMessage Update(string id, [FromBody] Models.Agency agency)
 		{
 			try
 			{
-                this.Provider.Update(id, client);
+                this.Provider.Update(id, agency);
 				return Request.CreateResponse(HttpStatusCode.OK);
 			}
 			catch (System.Exception ex)
@@ -128,7 +128,7 @@ namespace Publicis.DDM.Middleware.API
         }
 
         /// <summary>
-        /// Delete a client by id
+        /// Delete a agency by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

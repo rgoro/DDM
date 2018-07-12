@@ -396,9 +396,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\AgencyController.cs" />
+    <Compile Include="API\MarketController.cs" />
     <Compile Include="API\ClientController.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Models\Agency.cs" />
+    <Compile Include="Models\Market.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
