@@ -47,14 +47,14 @@ namespace Publicis.DDM.Middleware.Provider
 			return collection.Find(a => true).ToList<T>();
 		}
 
-		public T Find(string filter, string entity)
+		public List<T> Find(string filter, string entity)
 		{
 			//Get Database
 			IMongoDatabase db = this.GetMongoClient().GetDatabase(System.Configuration.ConfigurationManager.AppSettings["MongoDB"]);
 			//Get Collection
 			IMongoCollection<T> collection = db.GetCollection<T>(entity);
 
-			T clientfrommongo = collection.Find(filter).ToList<T>().First();
+			List<T> clientfrommongo = collection.Find(filter).ToList<T>();
 			return clientfrommongo;
 		}
 
