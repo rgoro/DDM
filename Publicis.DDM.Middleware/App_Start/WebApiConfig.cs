@@ -22,7 +22,7 @@ namespace Publicis.DDM.Middleware
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost:51820", "*", "*");
 
             config.EnableCors(cors);
             config.Routes.MapHttpRoute(
