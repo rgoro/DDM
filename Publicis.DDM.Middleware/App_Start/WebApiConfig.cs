@@ -1,13 +1,10 @@
 ﻿using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace Publicis.DDM.Middleware
 {
-    #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
