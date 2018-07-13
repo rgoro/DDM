@@ -397,6 +397,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\AgencyController.cs" />
+    <Compile Include="API\BaseController.cs" />
     <Compile Include="API\MarketController.cs" />
     <Compile Include="API\ClientController.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
