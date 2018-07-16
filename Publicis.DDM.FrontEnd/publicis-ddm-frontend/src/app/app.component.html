@@ -1,8 +1,14 @@
-<mat-grid-list cols="3">
-    <mat-grid-tile>
-        <h1>{{title}}</h1>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <app-clients-list></app-clients-list>
-    </mat-grid-tile>       
-  </mat-grid-list>
+<div class="container">
+    <div class="row">
+        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item>Clients</button>
+        <button mat-menu-item>Agencies</button>
+        <button mat-menu-item>Markets</button>
+        </mat-menu>
+    </div>
+    <br>
+    <div class="row">
+        <app-clients-list></app-clients-list>            
+    </div>
+</div>

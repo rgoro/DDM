@@ -10,6 +10,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServiceInterceptor } from './service-interceptor';
 
 import { MatGridListModule } from '@angular/material';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -21,7 +25,11 @@ import { MatGridListModule } from '@angular/material';
   imports: [
     BrowserModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatListModule,
+    MatMenuModule,
+    MatButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

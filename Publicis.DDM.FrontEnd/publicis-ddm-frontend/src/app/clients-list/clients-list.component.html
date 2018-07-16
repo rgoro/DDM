@@ -1,4 +1,40 @@
-<h1>Clients List</h1>
-<ul>
-  <li *ngFor="let client of clients"> {{ client.name }} </li>
-</ul>
+
+<div class="row">
+  <div class="col">
+      <h1>Clients</h1>
+  </div>
+  <div class="col">
+      <mat-selection-list>
+        <mat-list-option>
+          Select All
+        </mat-list-option>
+      </mat-selection-list>
+  </div>
+  <div class="w-100"></div>
+  <div class="col">
+      <ul class="list-group-flush">
+          <li class="list-group-item">
+              <button mat-button>
+                Add
+              </button>
+          </li>
+          <li class="list-group-item">
+              <button mat-button>
+                Find
+              </button>
+          </li>
+          <li class="list-group-item">
+              <button mat-button>
+                Delete
+              </button>
+          </li>
+        </ul>
+  </div>
+  <div class="col"> 
+      <mat-selection-list>
+          <mat-list-option *ngFor="let client of clients">
+              {{ client.name }}
+          </mat-list-option>
+        </mat-selection-list>      
+  </div>
+</div>

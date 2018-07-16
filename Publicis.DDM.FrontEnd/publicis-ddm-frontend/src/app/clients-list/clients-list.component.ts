@@ -17,7 +17,7 @@ export class ClientsListComponent implements OnInit {
   getAll(): void {
     this.clientsService.getAll()
       .subscribe(
-        clients => { this.clients = clients }      
+        clients => { this.clients = clients  }      
       )
   }
 
