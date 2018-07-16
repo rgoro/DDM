@@ -16,5 +16,5 @@ namespace Publicis.DDM.Middleware.Models
 			get;
 			set;
 		}
-	}
+    }
 }
