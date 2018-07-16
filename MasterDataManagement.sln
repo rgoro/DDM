@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publicis.DDM.Middleware", "Publicis.DDM.Middleware\Publicis.DDM.Middleware.csproj", "{D75D8EB2-6D88-48F3-8942-A1F54D3ADE2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publicis.DDM.FrontEnd", "Publicis.DDM.PresentationLayer\Publicis.DDM.FrontEnd.csproj", "{5A41EB84-30B8-443B-B511-0CC70A3FF847}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publicis.DDM.FrontEnd", "Publicis.DDM.FrontEnd\Publicis.DDM.FrontEnd.csproj", "{5A41EB84-30B8-443B-B511-0CC70A3FF847}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
