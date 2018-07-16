@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Owin;
+﻿using Owin;
 using System.Web.Http;
 using Microsoft.Owin;
 using System.Globalization;
@@ -11,7 +7,7 @@ using System.Threading;
 [assembly: OwinStartup(typeof(Publicis.DDM.Middleware.Startup))]
 namespace Publicis.DDM.Middleware
 {
-    #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Startup
     {
         public void Configuration(IAppBuilder app)
