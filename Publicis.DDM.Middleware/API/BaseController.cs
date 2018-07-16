@@ -47,7 +47,7 @@ namespace Publicis.DDM.Middleware.API
                 List<T> entities = this.Provider.GetAll();
                 return Request.CreateResponse(HttpStatusCode.OK, entities);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
             }

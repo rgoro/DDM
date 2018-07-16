@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace Publicis.DDM.Middleware.Provider
@@ -87,7 +88,7 @@ namespace Publicis.DDM.Middleware.Provider
 
 		public List<T> Find(string filter)
 		{
-			return this.Collection.Find(filter).ToList<T>();
+			return this.Collection.Find(filter).ToList();
 		}
 
 		public long Update(string id, T entity)
