@@ -9,6 +9,9 @@ import { ClientsListComponent } from './clients-list/clients-list.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServiceInterceptor } from './service-interceptor';
 
+import { MatGridListModule } from '@angular/material';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,8 @@ import { ServiceInterceptor } from './service-interceptor';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
