@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Publicis.DDM.Middleware.Models;
 using System.Linq;
+using MongoDB.Bson;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace Publicis.DDM.Middleware.Provider
@@ -53,6 +54,24 @@ namespace Publicis.DDM.Middleware.Provider
             List<Agency> allAgencies = base.Find(filter);
 
             return allAgencies.Select(a => a.FilterAttributes(usuarioAtributos.AtributosAgencia)).ToList();
+        }
+
+        public ObjectId Insert(int idUsuario, Agency agency)
+        {
+            UsuarioAtributos usuarioAtributos = this.UsuarioAtributosProvider.GetByIdUsuario(idUsuario);
+
+            Agency filteredAgency = agency.FilterAttributes(usuarioAtributos.AtributosAgencia);
+
+            return base.Insert(filteredAgency);
+        }
+
+        public long Update(string id, int idUsuario, Agency agency)
+        {
+            UsuarioAtributos usuarioAtributos = this.UsuarioAtributosProvider.GetByIdUsuario(idUsuario);
+
+            Agency filteredAgency = agency.FilterAttributes(usuarioAtributos.AtributosAgencia);
+
+            return base.Update(id, filteredAgency);
         }
     }
 }

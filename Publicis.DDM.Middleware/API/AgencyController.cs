@@ -1,4 +1,5 @@
-﻿using Publicis.DDM.Middleware.Models;
+﻿using MongoDB.Bson;
+using Publicis.DDM.Middleware.Models;
 using Publicis.DDM.Middleware.Provider;
 using System.Collections.Generic;
 using System.Net;
@@ -79,6 +80,7 @@ namespace Publicis.DDM.Middleware.API
         /// Get Agency by a filter
         /// </summary>
         /// <param name="filter"></param>
+        /// <param name="idUsuario"></param>
         /// <returns>A list of clients matching the name</returns>
         [HttpGet]
         public HttpResponseMessage Get(string filter, int idUsuario)
@@ -87,6 +89,55 @@ namespace Publicis.DDM.Middleware.API
             {
                 List<Agency> agencies = this.Provider.Find(filter, idUsuario);
                 return Request.CreateResponse(HttpStatusCode.OK, agencies);
+            }
+            catch (System.Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Add a entity
+        /// </summary>
+        /// <param name="idUsuario"></param>
+        /// <param name="agency"></param>
+        /// <returns>The new agency's ID</returns>
+        [HttpPost]
+        public HttpResponseMessage Add(int idUsuario, [FromBody] Agency agency)
+        {
+            try
+            {
+                ObjectId newId = this.Provider.Insert(idUsuario, agency);
+                return Request.CreateResponse(HttpStatusCode.OK, newId);
+            }
+            catch (System.Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update an agency
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="idUsuario"></param>
+        /// <param name="agency"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public HttpResponseMessage Update(string id, int idUsuario, [FromBody] Agency agency)
+        {
+            try
+            {
+                long matched = this.Provider.Update(id, idUsuario, agency);
+                if (matched >= 1)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK);
+                }
+                else
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
             }
             catch (System.Exception ex)
             {

@@ -46,6 +46,7 @@ namespace Publicis.DDM.Middleware.Models
         public Agency FilterAttributes(string[] atributosValidos)
         {
             Dictionary<string, object> filteredValues;
+            IEnumerable<string> lcAtributosValidos = atributosValidos.Select(a => a.ToLower());
 
             if (atributosValidos.Length == 0)
             {
@@ -57,7 +58,7 @@ namespace Publicis.DDM.Middleware.Models
             }
             else
             {
-                filteredValues = this.Values.Where(v => atributosValidos.Contains(v.Key)).ToDictionary(kv => kv.Key, kv => kv.Value);
+                filteredValues = this.Values.Where(v => lcAtributosValidos.Contains(v.Key.ToLower())).ToDictionary(kv => kv.Key, kv => kv.Value);
             }
 
             return new Agency
