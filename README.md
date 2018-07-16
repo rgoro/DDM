@@ -1,15 +1,18 @@
-#Publicis Dolores de Mongo
+# Publicis Dolores de Mongo
 
-##Instalación
+## Instalación
 
-npm install npm run build (TODO: configurar destination folder del index en Views/Home/Index.cshtml) copiar contenido de index.html Views/Home/Index.cshtml
+* npm install npm run build (TODO: configurar destination folder del index en Views/Home/Index.cshtml)
+* copiar contenido de index.html Views/Home/Index.cshtml
 
-##Tecnologias
+## Tecnologias
 
-###Backend
+### Backend
 
-*MongoDB *.NET
+* MongoDB * .NET
 
-###Frontend
+### Frontend
 
-*Angular 6 *Angular Material *Angular Cdk
+* Angular 6 
+* Angular Material
+* Angular Cdk
