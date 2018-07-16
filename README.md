@@ -9,7 +9,8 @@
 
 ### Backend
 
-* MongoDB * .NET
+* MongoDB 
+* .NET
 
 ### Frontend
 
