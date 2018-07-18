@@ -18,6 +18,9 @@ export class EntityFormComponent implements OnInit {
   disabled: boolean;
   entity: Entity;
 
+  entityHasValues(): boolean {
+    return this.entity.values && Object.keys(this.entity.values).length > 0;
+  }
 
   ngOnInit() {
     this.route.data
