@@ -1,10 +1,6 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
 
-import { ClientsListComponent } from './clients-list/clients-list.component';
-import { AgenciesListComponent } from './agencies-list/agencies-list.component';
-import { MarketsListComponent } from './markets-list/markets-list.component';
-import { ClientFormComponent } from './client-form/client-form.component';
 import { EntityFormComponent } from './entity-form/entity-form.component';
 import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 
@@ -27,7 +23,7 @@ const appRoutes: Routes = [
                 path: ':id',
                 component: EntityFormComponent,
                 resolve: {
-                    client: EntityResolver
+                    entity: EntityResolver
                 },
                 data: {
                     type: 'Client'
@@ -44,7 +40,19 @@ const appRoutes: Routes = [
         data: {
             title: 'Agencies',
             type: 'Agency'
-        }
+        },
+        children: [
+            { 
+                path: ':id',
+                component: EntityFormComponent,
+                resolve: {
+                    entity: EntityResolver
+                },
+                data: {
+                    type: 'Agency'
+                },
+            }
+        ]
     },
     { 
         path: 'markets',
@@ -55,7 +63,19 @@ const appRoutes: Routes = [
         data: { 
             title: 'Markets',
             type: 'Market'
-        }
+        },
+        children: [
+            { 
+                path: ':id',
+                component: EntityFormComponent,
+                resolve: {
+                    entity: EntityResolver
+                },
+                data: {
+                    type: 'Market'
+                },
+            }
+        ]
     },
     { 
         path: '',

@@ -5,9 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { EntityService } from '../entity.service';
 import { Entity } from '../entity';
 
-
 @Component({
-  selector: 'app-entity-panel',
   templateUrl: './entity-panel.component.html',
   styleUrls: ['./entity-panel.component.css']
 })
@@ -31,7 +29,9 @@ export class EntityPanelComponent implements OnInit {
   getById(entityType: string, id: number): void {
     this.entityService.getById(entityType, id)
       .subscribe(
-        entity => { this.entity = entity[0] }
+        entity => { 
+          this.entity = entity[0];
+        }
       )
   }
 

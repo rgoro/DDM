@@ -11,6 +11,7 @@ import { Entity } from '../entity';
 export class EntityListComponent implements OnInit {
 
   @Input() entities: Entity[];
+  @Input() title: string;
 
   faSearch = faSearch;
 

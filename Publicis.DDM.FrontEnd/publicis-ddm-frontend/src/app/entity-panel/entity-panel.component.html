@@ -14,12 +14,13 @@
       </div>
     </div>
     <div class="col">
+        
     </div>
     <div class="w-100"></div>
     <div class="col">
-        <app-entity-list [entities]="entities"></app-entity-list>
+        <app-entity-list [title]="title" [entities]="entities"></app-entity-list>
     </div>
     <div class="col"> 
-          
+        <router-outlet></router-outlet>
     </div>
   </div>

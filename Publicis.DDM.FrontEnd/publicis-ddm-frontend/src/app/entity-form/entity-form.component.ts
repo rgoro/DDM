@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { EntityService } from '../entity.service';
+
+import { Entity } from '../entity';
 
 @Component({
   selector: 'app-entity-form',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntityFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private entityService: EntityService, private route: ActivatedRoute) { }
 
+  entity: Entity;
   ngOnInit() {
+    this.route.data
+      .subscribe((data: { entity: Entity}) => 
+        { this.entity = data.entity }      
+    );
+  }
   }
 
 }
