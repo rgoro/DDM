@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { faPlus, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { Entity } from '../entity';
 
@@ -11,10 +11,9 @@ import { Entity } from '../entity';
 export class EntityListComponent implements OnInit {
 
   @Input() entities: Entity[];
-  @Input() title: string;
 
-  faPlus = faPlus;
   faSearch = faSearch;
+
   constructor() { }
   
   ngOnInit() {

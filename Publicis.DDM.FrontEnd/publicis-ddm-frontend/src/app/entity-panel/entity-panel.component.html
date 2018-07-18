@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col">
+      <div class="row">
+          <div class="col-4">
+              <h2>{{ title | uppercase }}</h2>
+          </div>
+          <div class="col-8">
+              <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                  <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <button type="button" class="btn btn-secondary"><fa-icon [icon]="faPlus"></fa-icon></button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col">
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+        <app-entity-list [entities]="entities"></app-entity-list>
+    </div>
+    <div class="col"> 
+          
+    </div>
+  </div>

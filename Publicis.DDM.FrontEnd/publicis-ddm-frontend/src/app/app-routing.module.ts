@@ -6,6 +6,7 @@ import { AgenciesListComponent } from './agencies-list/agencies-list.component';
 import { MarketsListComponent } from './markets-list/markets-list.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { EntityFormComponent } from './entity-form/entity-form.component';
+import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 
 import { EntityListResolver } from './entity-list-resolver.service';
 import { EntityResolver } from './entity-resolver.service';
@@ -13,9 +14,9 @@ import { EntityResolver } from './entity-resolver.service';
 const appRoutes: Routes = [
     { 
         path: 'clients',
-        component: ClientsListComponent,
+        component: EntityPanelComponent,
         resolve: {
-            clients: EntityListResolver
+            entities: EntityListResolver
         },
         data: {
             title: 'Clients',
@@ -36,9 +37,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'agencies',
-        component: AgenciesListComponent,
+        component: EntityPanelComponent,
         resolve: {
-            agencies: EntityListResolver
+            entities: EntityListResolver
         },
         data: {
             title: 'Agencies',
@@ -47,9 +48,9 @@ const appRoutes: Routes = [
     },
     { 
         path: 'markets',
-        component: MarketsListComponent,
+        component: EntityPanelComponent,
         resolve: {
-            markets: EntityListResolver
+            entities: EntityListResolver
         },
         data: { 
             title: 'Markets',

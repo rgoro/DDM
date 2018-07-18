@@ -9,16 +9,6 @@ namespace Publicis.DDM.Middleware.Models
 	public class Market : Entity
 	{
         /// <summary>
-        /// Market Id
-        /// </summary>
-        [BsonElement("marketId"), BsonIgnore]
-        public MongoDB.Bson.ObjectId MarketId
-        {
-            get { return base.Id; }
-            set { base.Id = value; }
-        }
-
-        /// <summary>
         /// Market name
         /// </summary>
 		[BsonElement("name")]

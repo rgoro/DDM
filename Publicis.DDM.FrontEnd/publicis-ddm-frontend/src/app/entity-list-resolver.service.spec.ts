@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { EntityListResolverService } from './entity-list-resolver.service';
+import { EntityListResolver } from './entity-list-resolver.service';
 
-describe('EntityListResolverService', () => {
+describe('EntityListResolver', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [EntityListResolverService]
+      providers: [EntityListResolver]
     });
   });
 
-  it('should be created', inject([EntityListResolverService], (service: EntityListResolverService) => {
+  it('should be created', inject([EntityListResolver], (service: EntityListResolver) => {
     expect(service).toBeTruthy();
   }));
 });

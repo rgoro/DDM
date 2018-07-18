@@ -24,7 +24,7 @@ export class EntityService {
   }
 
   getById(type: string, id: number): Observable<Entity[]> {    
-    return this.http.get<Entity[]>(this.url + type + '/GetById/' + id)
+    return this.http.get<Entity[]>(this.url + type + '/GetById?mongoId=' + id)
       .pipe(
         catchError(this.handleError('getById', []))
       )
@@ -32,7 +32,7 @@ export class EntityService {
 
   Find(type: string, filter: string): Observable<Entity[]> {
     let formattedFilter;
-    return this.http.get<Entity[]>(this.url + type + '/Get/' + formattedFilter)
+    return this.http.get<Entity[]>(this.url + type + '/Get' + formattedFilter)
       .pipe(
         catchError(this.handleError('Find', []))
       )

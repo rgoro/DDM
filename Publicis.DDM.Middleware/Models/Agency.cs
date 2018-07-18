@@ -10,16 +10,6 @@ namespace Publicis.DDM.Middleware.Models
 	public class Agency : Entity
 	{
         /// <summary>
-        /// Agency Id
-        /// </summary>
-        [BsonElement("agencyId"), BsonIgnore]
-        public MongoDB.Bson.ObjectId AgencyId
-        {
-            get { return base.Id; }
-            set { base.Id = value; }
-        }
-
-        /// <summary>
         /// Agency name
         /// </summary>
 		[BsonElement("name")]
@@ -63,7 +53,7 @@ namespace Publicis.DDM.Middleware.Models
 
             return new Agency
             {
-                AgencyId = this.AgencyId,
+                Id = this.Id,
                 Name = this.Name,
                 Values = filteredValues
             };

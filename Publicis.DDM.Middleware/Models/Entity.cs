@@ -10,7 +10,7 @@ namespace Publicis.DDM.Middleware.Models
         /// <summary>
         /// Generic Id
         /// </summary>
-		[BsonId, Newtonsoft.Json.JsonIgnore]
+		[BsonId]
 		public MongoDB.Bson.ObjectId Id
 		{
 			get;

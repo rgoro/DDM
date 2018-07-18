@@ -1,21 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServiceInterceptor } from './service-interceptor';
 
 import { AppComponent } from './app.component';
-import { ClientFormComponent } from './client-form/client-form.component';
+
 import { EntityFormComponent } from './entity-form/entity-form.component';
-
-import { ClientsListComponent } from './clients-list/clients-list.component';
-import { AgenciesListComponent } from './agencies-list/agencies-list.component';
-import { MarketsListComponent } from './markets-list/markets-list.component';
+import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 import { EntityListComponent } from './entity-list/entity-list.component';
-
-import { AppRoutingModule } from './app-routing.module';
 
 import { MatGridListModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
@@ -27,12 +23,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
-    ClientFormComponent,
-    ClientsListComponent,
-    AgenciesListComponent,
-    MarketsListComponent,
     EntityListComponent,
-    EntityFormComponent
+    EntityFormComponent,
+    EntityPanelComponent
   ],
   imports: [
     BrowserModule,
