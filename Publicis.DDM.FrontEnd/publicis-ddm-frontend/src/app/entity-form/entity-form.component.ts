@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { EntityService } from '../entity.service';
+import { EntityValuesPipe } from '../entity-values.pipe';
 
 import { Entity } from '../entity';
 

@@ -22,13 +22,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EntityValuesPipe } from './entity-values.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     EntityListComponent,
     EntityFormComponent,
-    EntityPanelComponent
+    EntityPanelComponent,
+    EntityValuesPipe
   ],
   imports: [
     BrowserModule,
