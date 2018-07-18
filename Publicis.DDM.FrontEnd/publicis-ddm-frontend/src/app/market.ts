@@ -1,4 +1,4 @@
 import { Entity } from './entity';
 
-export class Client extends Entity {
+export class Market extends Entity {
 }

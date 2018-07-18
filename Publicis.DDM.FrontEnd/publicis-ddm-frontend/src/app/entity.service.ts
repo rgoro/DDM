@@ -7,32 +7,32 @@ import { Client } from './client';
 import { HttpParams } from '@angular/common/http/src/params';
 import { HttpParamsOptions } from '@angular/common/http/src/params';
 import { HttpRequestsHelperService } from './http-requests-helper.service';
+import { Entity } from './entity';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientsService {
+export class EntityService {
 
-  private url = this.helper.getBaseUrl() + 'Api/Client/';
+  private url = this.helper.getBaseUrl() + 'Api/';
   
-  getAll(): Observable<Client[]> {    
-    return this.http.get<Client[]>(this.url + 'GetAll')
+  getAll(type: string): Observable<Entity[]> {
+    return this.http.get<Entity[]>(this.url + type + '/GetAll')
       .pipe(
         catchError(this.handleError('getClients', []))
       )
   }
 
-  getById(id: number): Observable<Client[]> {    
-    return this.http.get<Client[]>(this.url + 'GetById/' + id)
+  getById(type: string, id: number): Observable<Entity[]> {    
+    return this.http.get<Entity[]>(this.url + type + '/GetById/' + id)
       .pipe(
         catchError(this.handleError('getById', []))
       )
   }
 
-  Find(filter: string): Observable<Client[]> {    
-    // TODO: armar params
+  Find(type: string, filter: string): Observable<Entity[]> {
     let formattedFilter;
-    return this.http.get<Client[]>(this.url + 'Get/' + formattedFilter)
+    return this.http.get<Entity[]>(this.url + type + '/Get/' + formattedFilter)
       .pipe(
         catchError(this.handleError('Find', []))
       )

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col">
+    <div class="row">
+        <div class="col-4">
+            <h2>{{ title | uppercase }}</h2>
+        </div>
+        <div class="col-8">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-secondary"><fa-icon [icon]="faPlus"></fa-icon></button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+  <div class="w-100"></div>
+  <div class="col">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><fa-icon [icon]="faSearch"></fa-icon></span>
+            <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        <mat-nav-list>
+            <a mat-list-item *ngFor="let entity of entities" routerLink="/{{title | lowercase}}/{{entity.id}}">
+                {{ entity.name }}
+            </a>
+        </mat-nav-list>
+  </div>
+  <div class="col"> 
+        
+  </div>
+</div>

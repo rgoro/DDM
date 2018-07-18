@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../client';
-import { ClientsService } from '../clients.service';
 
 @Component({
   selector: 'app-client-form',
@@ -9,7 +8,7 @@ import { ClientsService } from '../clients.service';
 })
 export class ClientFormComponent implements OnInit {
 
-  constructor(clientsService: ClientsService) { }
+  constructor() { }
 
   clients: Client[];
 
