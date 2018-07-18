@@ -14,12 +14,16 @@ export class EntityFormComponent implements OnInit {
 
   constructor(private entityService: EntityService, private route: ActivatedRoute) { }
 
+  disabled: boolean;
   entity: Entity;
+
+
   ngOnInit() {
     this.route.data
       .subscribe((data: { entity: Entity}) => 
         { this.entity = data.entity }      
     );
+    this.disabled = true;
   }
   }
 
