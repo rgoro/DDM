@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Client } from './client';
 import { HttpParams } from '@angular/common/http/src/params';
 import { HttpParamsOptions } from '@angular/common/http/src/params';
 import { HttpRequestsHelperService } from './http-requests-helper.service';

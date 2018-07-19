@@ -29,6 +29,5 @@ export class EntityFormComponent implements OnInit {
     );
     this.disabled = true;
   }
-  }
 
 }
