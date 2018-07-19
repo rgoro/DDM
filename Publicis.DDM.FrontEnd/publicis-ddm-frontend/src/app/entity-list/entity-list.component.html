@@ -3,7 +3,7 @@
     <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
 </div>
 <mat-nav-list>
-    <a mat-list-item *ngFor="let entity of entities" routerLink="/{{title | lowercase}}/{{entity.id}}">
+    <a mat-list-item *ngFor="let entity of entities" (click)="selectEntity(entity)">
         {{ entity.name }}
     </a>
 </mat-nav-list>

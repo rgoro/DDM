@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { EntityService } from '../entity.service';
@@ -16,7 +16,7 @@ export class EntityFormComponent implements OnInit {
   constructor(private entityService: EntityService, private route: ActivatedRoute) { }
 
   disabled: boolean;
-  entity: Entity;
+  @Input() entity: Entity;
 
   entityHasValues(): boolean {
     return this.entity.values && Object.keys(this.entity.values).length > 0;
@@ -29,6 +29,4 @@ export class EntityFormComponent implements OnInit {
     );
     this.disabled = true;
   }
-  }
-
 }

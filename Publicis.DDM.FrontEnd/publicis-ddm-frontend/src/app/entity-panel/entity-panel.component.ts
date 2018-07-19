@@ -4,6 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { EntityService } from '../entity.service';
 import { Entity } from '../entity';
+import { EntityFormComponent } from '../entity-form/entity-form.component';
 
 @Component({
   templateUrl: './entity-panel.component.html',
@@ -19,20 +20,10 @@ export class EntityPanelComponent implements OnInit {
   entity: Entity;
   title: string;
 
-  getAll(entityType: string): void {
-    this.entityService.getAll(entityType)
-      .subscribe(
-        entities => { this.entities = entities  }      
-      )
-  }
+  public selectedEntity: Entity;
 
-  getById(entityType: string, id: number): void {
-    this.entityService.getById(entityType, id)
-      .subscribe(
-        entity => { 
-          this.entity = entity[0];
-        }
-      )
+  entitySelected(entity: Entity) {
+    this.selectedEntity = entity;
   }
 
   Find(entityType: string, filter: string): void {

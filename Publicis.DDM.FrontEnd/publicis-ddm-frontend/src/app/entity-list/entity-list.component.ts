@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { Entity } from '../entity';
+//import { EventEmitter } from '@angular/core/src/event_emitter';
 
 @Component({
   selector: 'app-entity-list',
@@ -12,10 +13,15 @@ export class EntityListComponent implements OnInit {
 
   @Input() entities: Entity[];
   @Input() title: string;
+  @Output() entitySelected = new EventEmitter<Entity>();
 
   faSearch = faSearch;
 
   constructor() { }
+
+  selectEntity(entity: Entity) {
+    this.entitySelected.emit(entity);
+  }
   
   ngOnInit() {
   }

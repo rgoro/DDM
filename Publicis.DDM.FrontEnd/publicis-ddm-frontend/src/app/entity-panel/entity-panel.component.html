@@ -18,9 +18,9 @@
     </div>
     <div class="w-100"></div>
     <div class="col">
-        <app-entity-list [title]="title" [entities]="entities"></app-entity-list>
+        <app-entity-list [title]="title" [entities]="entities" (entitySelected)="entitySelected($event)"></app-entity-list>
     </div>
     <div class="col"> 
-        <router-outlet></router-outlet>
+        <app-entity-form [entity]="selectedEntity"></app-entity-form>
     </div>
   </div>
