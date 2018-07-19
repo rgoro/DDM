@@ -19,17 +19,17 @@ export class EntityPanelComponent implements OnInit {
 
   entities: Entity[];
   title: string;
-  cancelEntityEdit: boolean;
 
+  public cancelEntityEdit: boolean;
   public selectedEntity: Entity;
 
   entitySelected(entity: Entity) {
-    this.cancelEntityEdit = this.selectedEntity && this.selectedEntity.id != entity.id;
     this.selectedEntity = entity;
   }
 
   addNewEntity() :void {
     const dialogRef = this.dialog.open(AddNewEntityDialog, {
+      width: '40%',
       data: { entityType: this.route.snapshot.data.type }
     })
   }

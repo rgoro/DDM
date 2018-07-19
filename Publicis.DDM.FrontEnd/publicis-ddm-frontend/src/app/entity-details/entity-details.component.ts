@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { EntityService } from '../entity.service';
-import { EntityValuesPipe } from '../entity-values.pipe';
+import { EntityUserDefinedAttributesPipe } from '../entity-udas.pipe';
 
 import { Entity } from '../entity';
 
@@ -18,11 +18,18 @@ export class EntityDetailsComponent implements OnInit {
   @Input() disabled: boolean;
   @Input() entity: Entity;
 
+  toggleDisabled(): void {
+    this.disabled = !this.disabled;
+  }
+
   ngOnInit() {
-    this.route.data
-      .subscribe((data: { entity: Entity}) => 
-        { this.entity = data.entity }      
-    );
-    this.disabled = this.disabled == null || this.disabled == undefined? true : false;
+    this.disabled = true;
+  }
+
+  ngOnChanges(simpleChanges) {
+    if(simpleChanges.entity.previousValue && simpleChanges.entity.previousValue.id != simpleChanges.entity.currentValue.id)
+    {
+      this.disabled = true;
+    }    
   }
 }

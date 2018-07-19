@@ -13,7 +13,7 @@ export class EntityFormComponent implements OnInit {
   @Input() disabled: boolean;
   @Input() showId: boolean;
 
-  entityHasValues(): boolean {
+  entityHasUDAs(): boolean {
     return this.entity.values && Object.keys(this.entity.values).length > 0;
   }
 

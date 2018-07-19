@@ -10,13 +10,13 @@
         <input matInput placeholder="Name" value="{{entity.name}}" disabled="{{disabled}}">
       </mat-form-field>
     </div>
-    <div *ngIf="entityHasValues()">
+    <div *ngIf="entityHasUDAs()">
       <mat-list-item>
         <h5>User Defined Attributes</h5>
       </mat-list-item>
-      <div *ngFor="let value of entity.values | entityValues">
+      <div *ngFor="let uda of entity.values | entityUDAs">
         <mat-form-field>
-          <input matInput placeholder="{{value[0]}}" value="{{value[1]}}" disabled="{{disabled}}">
+          <input matInput placeholder="{{uda[0]}}" value="{{uda[1]}}" disabled="{{disabled}}">
         </mat-form-field>
       </div>
     </div>

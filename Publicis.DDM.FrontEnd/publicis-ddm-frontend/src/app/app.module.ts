@@ -23,7 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { EntityValuesPipe } from './entity-values.pipe';
+import { EntityUserDefinedAttributesPipe } from './entity-udas.pipe';
 import { AddNewEntityDialog } from './add-new-entity-dialog/add-new-entity-dialog.component';
 import { EntityFormComponent } from './entity-form/entity-form.component';
 import { AddUdaRepeaterComponent } from './add-uda-repeater/add-uda-repeater.component';
@@ -34,7 +34,7 @@ import { AddUdaRepeaterComponent } from './add-uda-repeater/add-uda-repeater.com
     EntityListComponent,
     EntityDetailsComponent,
     EntityPanelComponent,
-    EntityValuesPipe,
+    EntityUserDefinedAttributesPipe,
     AddNewEntityDialog,
     EntityFormComponent,
     AddUdaRepeaterComponent,    

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-add-uda-repeater',
@@ -9,8 +9,27 @@ export class AddUdaRepeaterComponent implements OnInit {
 
   constructor() { }
 
-  @Input() userDefinedAttributes: [{}];
+  @Output() userDefinedAttributes: [{}];
+  @Input() udaName: string;
+  @Input() udaValue: string;
 
+  addUDA(): void {
+    if(!this.userDefinedAttributes) {
+      this.userDefinedAttributes = [
+        {
+          0: '',
+          1: ''
+        }
+      ];      
+    } else {
+      this.userDefinedAttributes.push(
+        {
+          0: '',
+          1: ''
+        }
+      );
+    }    
+  }
   ngOnInit() {
   }
 

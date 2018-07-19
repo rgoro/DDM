@@ -1,3 +1,14 @@
-<p>
-  add-uda-repeater works!
-</p>
+
+<div class="btn-group" role="group" style="width:100%;">
+  <button type="button" (click)="addUDA()" class="btn btn-secondary">
+    ADD ATTRIBUTES
+  </button>
+</div>
+<div *ngFor="let uda of userDefinedAttributes">
+  <mat-form-field>
+    <input matInput placeholder="Name" ([udaName])="uda[0]">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Value" ([udaValue])="uda[1]">
+  </mat-form-field>
+</div>
