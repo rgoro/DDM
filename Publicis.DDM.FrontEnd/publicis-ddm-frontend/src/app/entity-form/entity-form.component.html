@@ -1,22 +1,6 @@
-<div class="btn-toolbar" role="toolbar">
-  <div class="btn-group mr-2" role="group">
-    <button *ngIf="disabled" (click)="disabled = false" type="button" class="btn btn-secondary">EDIT</button>
-    <button *ngIf="!disabled" (click)="disabled = true" type="button" class="btn btn-secondary">CANCEL</button>
-  </div>
-  <div class="btn-group mr-2" role="group">
-    <div class="btn-group" role="group">
-      <button type="button" [disabled]="disabled" class="btn btn-secondary">
-        ADD ATTRIBUTES
-      </button>
-    <button type="button" class="btn btn-secondary" [disabled]="disabled">SAVE</button>
-  </div>
-</div>
-<div class="btn-group mr-2" role="group">
-  <button type="button" class="btn btn-danger">DELETE</button>
-</div>
-<form *ngIf="entity">
+<form>
   <mat-list>
-    <div>
+    <div *ngIf="showId">
       <mat-form-field>
         <input matInput placeholder="Id" value="{{entity.id}}" disabled="disabled">
       </mat-form-field>

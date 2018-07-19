@@ -1,9 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import { EntityService } from '../entity.service';
-import { EntityValuesPipe } from '../entity-values.pipe';
-
 import { Entity } from '../entity';
 
 @Component({
@@ -13,20 +8,18 @@ import { Entity } from '../entity';
 })
 export class EntityFormComponent implements OnInit {
 
-  constructor(private entityService: EntityService, private route: ActivatedRoute) { }
-
-  disabled: boolean;
+  constructor() { }
   @Input() entity: Entity;
+  @Input() disabled: boolean;
+  @Input() showId: boolean;
 
   entityHasValues(): boolean {
     return this.entity.values && Object.keys(this.entity.values).length > 0;
   }
 
   ngOnInit() {
-    this.route.data
-      .subscribe((data: { entity: Entity}) => 
-        { this.entity = data.entity }      
-    );
-    this.disabled = true;
+    this.disabled = this.disabled == null || this.disabled == undefined ? false : true;
+    this.showId = this.showId == null || this.showId == undefined ? false : true;
   }
+
 }

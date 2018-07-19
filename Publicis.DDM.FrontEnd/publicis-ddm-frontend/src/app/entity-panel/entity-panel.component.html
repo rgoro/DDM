@@ -7,7 +7,7 @@
           <div class="col-8">
               <div class="btn-toolbar" role="toolbar">
                   <div class="btn-group mr-2" role="group">
-                      <button type="button" class="btn btn-secondary"><fa-icon [icon]="faPlus"></fa-icon></button>
+                      <button mat-raised-button (click)="addNewEntity()" type="button" class="btn btn-secondary"><fa-icon [icon]="faPlus"></fa-icon></button>
                   </div>
               </div>
           </div>
@@ -21,6 +21,6 @@
         <app-entity-list [title]="title" [entities]="entities" (entitySelected)="entitySelected($event)"></app-entity-list>
     </div>
     <div class="col"> 
-        <app-entity-form [entity]="selectedEntity"></app-entity-form>
+        <app-entity-details [entity]="selectedEntity" [disabled]="cancelEntityEdit"></app-entity-details>
     </div>
   </div>

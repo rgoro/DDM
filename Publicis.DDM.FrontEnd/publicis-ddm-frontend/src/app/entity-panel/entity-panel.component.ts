@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { MatDialog } from '@angular/material';
 
 import { EntityService } from '../entity.service';
 import { Entity } from '../entity';
-import { EntityFormComponent } from '../entity-form/entity-form.component';
+import { AddNewEntityDialog } from '../add-new-entity-dialog/add-new-entity-dialog.component';
 
 @Component({
   templateUrl: './entity-panel.component.html',
@@ -12,18 +13,25 @@ import { EntityFormComponent } from '../entity-form/entity-form.component';
 })
 export class EntityPanelComponent implements OnInit {
 
-  constructor(private entityService: EntityService, private route: ActivatedRoute) { }
+  constructor(private entityService: EntityService, private route: ActivatedRoute, private dialog: MatDialog) { }
 
   faPlus = faPlus;
 
   entities: Entity[];
-  entity: Entity;
   title: string;
+  cancelEntityEdit: boolean;
 
   public selectedEntity: Entity;
 
   entitySelected(entity: Entity) {
+    this.cancelEntityEdit = this.selectedEntity && this.selectedEntity.id != entity.id;
     this.selectedEntity = entity;
+  }
+
+  addNewEntity() :void {
+    const dialogRef = this.dialog.open(AddNewEntityDialog, {
+      data: { entityType: this.route.snapshot.data.type }
+    })
   }
 
   Find(entityType: string, filter: string): void {
@@ -40,5 +48,4 @@ export class EntityPanelComponent implements OnInit {
     );
     this.title = this.route.snapshot.data.title;
   }
-
 }

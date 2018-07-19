@@ -9,12 +9,13 @@ import { ServiceInterceptor } from './service-interceptor';
 
 import { AppComponent } from './app.component';
 
-import { EntityFormComponent } from './entity-form/entity-form.component';
+import { EntityDetailsComponent } from './entity-details/entity-details.component';
 import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 import { EntityListComponent } from './entity-list/entity-list.component';
 
 import { MatGridListModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,14 +24,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EntityValuesPipe } from './entity-values.pipe';
+import { AddNewEntityDialog } from './add-new-entity-dialog/add-new-entity-dialog.component';
+import { EntityFormComponent } from './entity-form/entity-form.component';
+import { AddUdaRepeaterComponent } from './add-uda-repeater/add-uda-repeater.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EntityListComponent,
-    EntityFormComponent,
+    EntityDetailsComponent,
     EntityPanelComponent,
-    EntityValuesPipe
+    EntityValuesPipe,
+    AddNewEntityDialog,
+    EntityFormComponent,
+    AddUdaRepeaterComponent,    
+  ],
+  entryComponents: [
+    AddNewEntityDialog    
   ],
   imports: [
     BrowserModule,
@@ -39,6 +49,7 @@ import { EntityValuesPipe } from './entity-values.pipe';
     MatGridListModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,

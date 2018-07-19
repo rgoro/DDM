@@ -1,7 +1,7 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
 
-import { EntityFormComponent } from './entity-form/entity-form.component';
+import { EntityDetailsComponent } from './entity-details/entity-details.component';
 import { EntityPanelComponent } from './entity-panel/entity-panel.component';
 
 import { EntityListResolver } from './entity-list-resolver.service';
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
         children: [
             { 
                 path: ':id',
-                component: EntityFormComponent,
+                component: EntityDetailsComponent,
                 resolve: {
                     entity: EntityResolver
                 },
@@ -44,7 +44,7 @@ const appRoutes: Routes = [
         children: [
             { 
                 path: ':id',
-                component: EntityFormComponent,
+                component: EntityDetailsComponent,
                 resolve: {
                     entity: EntityResolver
                 },
@@ -67,7 +67,7 @@ const appRoutes: Routes = [
         children: [
             { 
                 path: ':id',
-                component: EntityFormComponent,
+                component: EntityDetailsComponent,
                 resolve: {
                     entity: EntityResolver
                 },
