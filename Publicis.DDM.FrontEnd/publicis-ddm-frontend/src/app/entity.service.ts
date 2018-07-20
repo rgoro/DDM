@@ -22,8 +22,8 @@ export class EntityService {
       )
   }
 
-  getById(type: string, id: number): Observable<Entity[]> {    
-    return this.http.get<Entity[]>(this.url + type + '/GetById?mongoId=' + id)
+  getById(type: string, id: number): Observable<any> {    
+    return this.http.get<Entity>(this.url + type + '/GetById?mongoId=' + id)
       .pipe(
         catchError(this.handleError('getById', []))
       )

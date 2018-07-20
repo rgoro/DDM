@@ -23,6 +23,7 @@ export class EntityPanelComponent implements OnInit {
   public cancelEntityEdit: boolean;
   public selectedEntity: Entity;
 
+  
   entitySelected(entity: Entity) {
     this.selectedEntity = entity;
   }
@@ -31,7 +32,16 @@ export class EntityPanelComponent implements OnInit {
     const dialogRef = this.dialog.open(AddNewEntityDialog, {
       width: '40%',
       data: { entityType: this.route.snapshot.data.type }
-    })
+    });
+    dialogRef.afterClosed().subscribe(
+      id => {
+        this.entityService.getById(this.route.snapshot.data.type, id).subscribe(
+          entity => {
+            this.entities.push(entity);
+          }
+        )
+      }
+    )
   }
 
   Find(entityType: string, filter: string): void {

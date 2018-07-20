@@ -46,9 +46,17 @@ export class AddNewEntityDialog implements OnInit {
       id: '',
       name: this.entityForm.entity.name,
       values: values
-    }
+    }      
     this.entityService.Post(this.entityType, data).subscribe(
+      id => {
+        this.dialogRef.close(id);
+      }
     );
+  }
+  discard(): void {
+    this.repeater.userDefinedAttributes = [{}];
+    this.entityForm.entity.name = '';
+    this.dialogRef.close();    
   }
   ngOnInit() {
     this.entityType = this.data.entityType;
