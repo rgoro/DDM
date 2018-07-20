@@ -271,8 +271,8 @@
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-panel\entity-panel.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-panel\entity-panel.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-resolver.service.ts" />
-    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-values.pipe.spec.ts" />
-    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-values.pipe.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-udas.pipe.spec.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-udas.pipe.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity.service.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity.service.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity.ts" />
