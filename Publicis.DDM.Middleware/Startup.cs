@@ -12,6 +12,7 @@ namespace Publicis.DDM.Middleware
     {
         public void Configuration(IAppBuilder app)
         {
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             HttpConfiguration config = GlobalConfiguration.Configuration;
 
             WebApiConfig.Register(config);
