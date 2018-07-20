@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-uda-repeater',
@@ -13,6 +14,7 @@ export class AddUdaRepeaterComponent implements OnInit {
   @Input() udaName: string;
   @Input() udaValue: string;
 
+  faMinus = faMinus;
   addUDA(): void {
     if(!this.userDefinedAttributes) {
       this.userDefinedAttributes = [
@@ -36,6 +38,10 @@ export class AddUdaRepeaterComponent implements OnInit {
   }
   addValue(value: string, index: number) {
     this.userDefinedAttributes[index][1] = value;
+  }
+
+  removeUDA(index: number) {
+    this.userDefinedAttributes.splice(index, 1);
   }
   ngOnInit() {
   }

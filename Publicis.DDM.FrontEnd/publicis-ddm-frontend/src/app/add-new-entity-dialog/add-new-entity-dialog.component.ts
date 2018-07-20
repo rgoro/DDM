@@ -42,10 +42,10 @@ export class AddNewEntityDialog implements OnInit {
       let value: string = repeater[i][1];
       values[key] = value;
     }
-    let data: Entity = {
+    let data = {
       id: '',
       name: this.entityForm.entity.name,
-      values: [values]
+      values: values
     }
     this.entityService.Post(this.entityType, data).subscribe(
     );

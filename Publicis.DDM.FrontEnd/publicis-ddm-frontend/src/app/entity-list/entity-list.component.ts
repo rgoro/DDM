@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { Entity } from '../entity';
-//import { EventEmitter } from '@angular/core/src/event_emitter';
 
 @Component({
   selector: 'app-entity-list',

@@ -37,11 +37,8 @@ export class EntityService {
       )
   }
 
-  Post(type: string, entity: Entity): Observable<Entity[]> {
-    let body = {
-      data: entity
-    };
-    return this.http.post<Entity[]>(this.url + type + '/Add', body)
+  Post(type: string, data): Observable<Entity[]> {
+    return this.http.post<Entity[]>(this.url + type + '/Add', data)
       .pipe(
         catchError(this.handleError('Post', []))
       )

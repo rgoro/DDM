@@ -262,6 +262,7 @@
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\app.module.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-dialog-data.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-form\entity-form.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-form\entity-form.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-list-resolver.service.spec.ts" />
