@@ -41,7 +41,7 @@ export class EntityService {
     let body = {
       data: entity
     };
-    return this.http.post<Entity[]>(this.url + type, body)
+    return this.http.post<Entity[]>(this.url + type + '/Add', body)
       .pipe(
         catchError(this.handleError('Post', []))
       )
