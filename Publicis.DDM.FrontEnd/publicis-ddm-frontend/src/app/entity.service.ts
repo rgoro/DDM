@@ -44,6 +44,13 @@ export class EntityService {
       )
   }
 
+  Update(type: string, id: string, data): Observable<any> {
+    return this.http.put<Entity>(this.url + type + '/Update?id=' + id, data)
+      .pipe(
+        catchError(this.handleError('Post', []))
+      )
+  }
+
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

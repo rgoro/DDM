@@ -19,6 +19,7 @@ export class EntityPanelComponent implements OnInit {
 
   entities: Entity[];
   title: string;
+  entityType: string;
 
   public cancelEntityEdit: boolean;
   public selectedEntity: Entity;
@@ -31,11 +32,11 @@ export class EntityPanelComponent implements OnInit {
   addNewEntity() :void {
     const dialogRef = this.dialog.open(AddNewEntityDialog, {
       width: '40%',
-      data: { entityType: this.route.snapshot.data.type }
+      data: { entityType: this.entityType }
     });
     dialogRef.afterClosed().subscribe(
       id => {
-        this.entityService.getById(this.route.snapshot.data.type, id).subscribe(
+        this.entityService.getById(this.entityType, id).subscribe(
           entity => {
             this.entities.push(entity);
           }
@@ -57,5 +58,6 @@ export class EntityPanelComponent implements OnInit {
       { this.entities = data.entities }      
     );
     this.title = this.route.snapshot.data.title;
+    this.entityType = this.route.snapshot.data.type;
   }
 }

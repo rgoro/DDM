@@ -17,6 +17,9 @@ export class EntityFormComponent implements OnInit {
     return this.entity.values && Object.keys(this.entity.values).length > 0;
   }
 
+  modifyUda(key: string, value: string): void {
+    this.entity.values[key] = value;
+  }
   ngOnInit() {
     this.disabled = this.disabled == null || this.disabled == undefined ? false : true;
     this.showId = this.showId == null || this.showId == undefined ? false : true;

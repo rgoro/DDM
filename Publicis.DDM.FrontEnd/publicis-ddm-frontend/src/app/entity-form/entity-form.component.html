@@ -16,7 +16,7 @@
       </mat-list-item>
       <div *ngFor="let uda of entity.values | entityUDAs">
         <mat-form-field>
-          <input matInput placeholder="{{uda[0]}}" [(ngModel)]="uda[1]" name="value" disabled="{{disabled}}">
+          <input matInput #attribute placeholder="{{uda[0]}}" (keyup)="modifyUda(uda[0], attribute.value)" value="{{uda[1]}}" name="value" disabled="{{disabled}}">
         </mat-form-field>
       </div>
     </div>

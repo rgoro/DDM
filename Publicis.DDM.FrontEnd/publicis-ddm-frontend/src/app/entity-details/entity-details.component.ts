@@ -17,11 +17,20 @@ export class EntityDetailsComponent implements OnInit {
 
   @Input() disabled: boolean;
   @Input() entity: Entity;
+  @Input() entityType: string;
 
   toggleDisabled(): void {
     this.disabled = !this.disabled;
   }
 
+  save(): void {
+    this.entityService.Update(this.entityType, this.entity.id, this.entity)
+      .subscribe(
+        response => {
+          this.disabled = true
+        }
+      );
+  }
   ngOnInit() {
     this.disabled = true;
   }

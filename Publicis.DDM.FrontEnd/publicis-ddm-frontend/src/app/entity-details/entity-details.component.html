@@ -8,7 +8,7 @@
       <button type="button" [disabled]="disabled" class="btn btn-secondary">
         ADD ATTRIBUTES
       </button>
-    <button type="button" class="btn btn-secondary" [disabled]="disabled">SAVE</button>
+    <button type="button" class="btn btn-secondary" (click)="save()" [disabled]="disabled">SAVE</button>
   </div>
 </div>
 <div class="btn-group mr-2" role="group">
