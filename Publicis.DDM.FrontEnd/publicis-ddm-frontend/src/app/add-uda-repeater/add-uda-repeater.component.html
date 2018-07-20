@@ -4,11 +4,11 @@
     ADD ATTRIBUTES
   </button>
 </div>
-<div *ngFor="let uda of userDefinedAttributes">
+<div *ngFor="let uda of userDefinedAttributes; index as i">
   <mat-form-field>
-    <input matInput placeholder="Name" ([udaName])="uda[0]">
+    <input matInput #key placeholder="Name" (keyup)="addKey(key.value, i)">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Value" ([udaValue])="uda[1]">
+    <input matInput #value placeholder="Value" (keyup)="addValue(value.value, i)">
   </mat-form-field>
 </div>

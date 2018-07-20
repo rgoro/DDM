@@ -2,4 +2,17 @@
   <h6>Add New {{ entityType }}</h6>
   <app-entity-form [entity]="entity"></app-entity-form>
   <app-add-uda-repeater></app-add-uda-repeater>
+  <br/> <br/>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        <button mat-button (click)="discard()">Discard</button>
+      </div>
+    </div>
+    <div class="col-6">
+      <div>
+        <button mat-button (click)="save()">Save</button>
+      </div>
+    </div>
+  </div>
 </div>

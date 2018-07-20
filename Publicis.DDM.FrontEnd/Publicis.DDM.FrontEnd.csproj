@@ -172,8 +172,6 @@
     <Content Include="publicis-ddm-frontend\src\app\add-uda-repeater\add-uda-repeater.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\app.component.css" />
     <Content Include="publicis-ddm-frontend\src\app\app.component.html" />
-    <Content Include="publicis-ddm-frontend\src\app\clients-list\clients-list.component.css" />
-    <Content Include="publicis-ddm-frontend\src\app\clients-list\clients-list.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.css" />
     <Content Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\entity-form\entity-form.component.css" />
@@ -262,8 +260,6 @@
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\app.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\app.module.ts" />
-    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\clients-list\clients-list.component.spec.ts" />
-    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\clients-list\clients-list.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-form\entity-form.component.spec.ts" />

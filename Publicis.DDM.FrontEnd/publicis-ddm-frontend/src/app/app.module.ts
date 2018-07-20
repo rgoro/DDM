@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -46,6 +47,7 @@ import { AddUdaRepeaterComponent } from './add-uda-repeater/add-uda-repeater.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     MatGridListModule,
     MatListModule,
     MatMenuModule,

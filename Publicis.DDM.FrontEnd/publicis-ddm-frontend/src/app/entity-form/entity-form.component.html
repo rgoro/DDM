@@ -1,13 +1,13 @@
-<form>
+<form #entityForm="ngForm">
   <mat-list>
     <div *ngIf="showId">
       <mat-form-field>
-        <input matInput placeholder="Id" value="{{entity.id}}" disabled="disabled">
+        <input matInput placeholder="Id" value="entity.id" disabled="disabled">
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
-        <input matInput placeholder="Name" value="{{entity.name}}" disabled="{{disabled}}">
+        <input matInput placeholder="Name" [(ngModel)]="entity.name" name="name" disabled="{{disabled}}">
       </mat-form-field>
     </div>
     <div *ngIf="entityHasUDAs()">
@@ -16,7 +16,7 @@
       </mat-list-item>
       <div *ngFor="let uda of entity.values | entityUDAs">
         <mat-form-field>
-          <input matInput placeholder="{{uda[0]}}" value="{{uda[1]}}" disabled="{{disabled}}">
+          <input matInput placeholder="{{uda[0]}}" [(ngModel)]="uda[1]" name="value" disabled="{{disabled}}">
         </mat-form-field>
       </div>
     </div>

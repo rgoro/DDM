@@ -30,6 +30,13 @@ export class AddUdaRepeaterComponent implements OnInit {
       );
     }    
   }
+
+  addKey(key: string, index: number) {
+    this.userDefinedAttributes[index][0] = key;
+  }
+  addValue(value: string, index: number) {
+    this.userDefinedAttributes[index][1] = value;
+  }
   ngOnInit() {
   }
 

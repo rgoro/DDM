@@ -37,6 +37,16 @@ export class EntityService {
       )
   }
 
+  Post(type: string, entity: Entity): Observable<Entity[]> {
+    let body = {
+      data: entity
+    };
+    return this.http.post<Entity[]>(this.url + type, body)
+      .pipe(
+        catchError(this.handleError('Post', []))
+      )
+  }
+
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
