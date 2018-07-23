@@ -20,6 +20,7 @@ export class EntityPanelComponent implements OnInit {
   entities: Entity[];
   title: string;
   entityType: string;
+  UILog: string;
 
   public cancelEntityEdit: boolean;
   public selectedEntity: Entity;
@@ -29,6 +30,18 @@ export class EntityPanelComponent implements OnInit {
     this.selectedEntity = entity;
   }
 
+  entityDeleted(id: string): void {
+    for(let i = 0; i <= this.entities.length; i++) 
+    {
+      if (this.entities[i].id == id)
+      {
+        this.entities.splice(i, 1);
+        this.selectedEntity = null;
+        this.UILog = 'Entity with Id: ' + id + ' successfully deleted.'
+        break;
+      }
+    }
+  }
   addNewEntity() :void {
     const dialogRef = this.dialog.open(AddNewEntityDialog, {
       width: '40%',

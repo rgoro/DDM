@@ -51,6 +51,13 @@ export class EntityService {
       )
   }
 
+  Delete(type: string, id: string): Observable<any> {
+    return this.http.delete<number>(this.url + type + '/Delete?id=' + id)
+      .pipe(
+        catchError(this.handleError('Post', []))
+      )
+  }
+
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

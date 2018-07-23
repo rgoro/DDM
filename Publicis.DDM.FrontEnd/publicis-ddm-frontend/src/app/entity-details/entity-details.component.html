@@ -1,6 +1,6 @@
 <div class="btn-toolbar" role="toolbar">
   <div class="btn-group mr-2" role="group">
-    <button *ngIf="disabled" (click)="toggleDisabled()" type="button" class="btn btn-secondary">EDIT</button>
+    <button *ngIf="disabled" (click)="toggleDisabled()" type="button" class="btn btn-secondary" [disabled]="!entity">EDIT</button>
     <button *ngIf="!disabled" (click)="toggleDisabled()" type="button" class="btn btn-secondary">CANCEL</button>
   </div>
   <div class="btn-group mr-2" role="group">
@@ -12,6 +12,6 @@
   </div>
 </div>
 <div class="btn-group mr-2" role="group">
-  <button type="button" class="btn btn-danger">DELETE</button>
+  <button type="button" (click)="delete()" class="btn btn-danger" [disabled]="disabled">DELETE</button>
 </div>
 <app-entity-form [entity]="entity" *ngIf="entity" [showId]="true" [disabled]="disabled"></app-entity-form>

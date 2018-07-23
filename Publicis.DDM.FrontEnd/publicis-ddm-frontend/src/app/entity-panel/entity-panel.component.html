@@ -14,13 +14,15 @@
       </div>
     </div>
     <div class="col">
-        
+        <div class="alert alert-info" role="alert" *ngIf="UILog">
+            {{ UILog }}
+        </div>
     </div>
     <div class="w-100"></div>
     <div class="col">
         <app-entity-list [title]="title" [entities]="entities" (entitySelected)="entitySelected($event)"></app-entity-list>
     </div>
     <div class="col"> 
-        <app-entity-details [entity]="selectedEntity" [disabled]="cancelEntityEdit" [entityType]="entityType"></app-entity-details>
+        <app-entity-details [entity]="selectedEntity" [disabled]="cancelEntityEdit" [entityType]="entityType" (entityDeleted)="entityDeleted($event)"></app-entity-details>
     </div>
   </div>

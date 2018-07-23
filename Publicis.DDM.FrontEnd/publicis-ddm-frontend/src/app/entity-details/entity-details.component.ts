@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { EntityService } from '../entity.service';
@@ -18,10 +18,11 @@ export class EntityDetailsComponent implements OnInit {
   @Input() disabled: boolean;
   @Input() entity: Entity;
   @Input() entityType: string;
-
+  @Output() entityDeleted = new EventEmitter<string>();
   toggleDisabled(): void {
     this.disabled = !this.disabled;
   }
+  disableEdit: boolean;
 
   save(): void {
     this.entityService.Update(this.entityType, this.entity.id, this.entity)
@@ -31,12 +32,23 @@ export class EntityDetailsComponent implements OnInit {
         }
       );
   }
+
+  delete(): void {
+    this.entityService.Delete(this.entityType, this.entity.id)
+      .subscribe(
+        response => {
+          this.entityDeleted.emit(this.entity.id);
+          this.disabled = true;
+          this.entity = null;
+        }
+      )
+  }
   ngOnInit() {
     this.disabled = true;
   }
 
   ngOnChanges(simpleChanges) {
-    if(simpleChanges.entity.previousValue && simpleChanges.entity.previousValue.id != simpleChanges.entity.currentValue.id)
+    if(simpleChanges.entity.previousValue && simpleChanges.entity.currentValue && simpleChanges.entity.previousValue.id != simpleChanges.entity.currentValue.id)
     {
       this.disabled = true;
     }    
