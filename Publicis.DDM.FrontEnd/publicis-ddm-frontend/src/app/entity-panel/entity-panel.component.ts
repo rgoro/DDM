@@ -49,20 +49,16 @@ export class EntityPanelComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(
       id => {
-        this.entityService.getById(this.entityType, id).subscribe(
-          entity => {
-            this.entities.push(entity);
-          }
-        )
+        if (id.length > 0) 
+        {
+          this.entityService.getById(this.entityType, id).subscribe(
+            entity => {
+              this.entities.push(entity);
+            }
+          )
+        }
       }
     )
-  }
-
-  Find(entityType: string, filter: string): void {
-    this.entityService.Find(entityType, filter)
-      .subscribe(
-        entities => { this.entities = entities }      
-      )
   }
 
   ngOnInit() {

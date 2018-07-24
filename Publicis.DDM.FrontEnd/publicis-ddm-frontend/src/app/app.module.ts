@@ -28,6 +28,8 @@ import { EntityUserDefinedAttributesPipe } from './entity-udas.pipe';
 import { AddNewEntityDialog } from './add-new-entity-dialog/add-new-entity-dialog.component';
 import { EntityFormComponent } from './entity-form/entity-form.component';
 import { AddUdaRepeaterComponent } from './add-uda-repeater/add-uda-repeater.component';
+import { AddAttributesDialog } from './add-attributes-dialog/add-attributes-dialog.component';
+import { ConfirmationDialog } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +40,14 @@ import { AddUdaRepeaterComponent } from './add-uda-repeater/add-uda-repeater.com
     EntityUserDefinedAttributesPipe,
     AddNewEntityDialog,
     EntityFormComponent,
-    AddUdaRepeaterComponent,    
+    AddUdaRepeaterComponent,
+    AddAttributesDialog,
+    ConfirmationDialog,    
   ],
   entryComponents: [
-    AddNewEntityDialog    
+    AddNewEntityDialog,
+    AddAttributesDialog,
+    ConfirmationDialog,    
   ],
   imports: [
     BrowserModule,

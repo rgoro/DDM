@@ -166,12 +166,16 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="publicis-ddm-frontend\e2e\protractor.conf.js" />
+    <Content Include="publicis-ddm-frontend\src\app\add-attributes-dialog\add-attributes-dialog.component.css" />
+    <Content Include="publicis-ddm-frontend\src\app\add-attributes-dialog\add-attributes-dialog.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\add-new-entity-dialog\add-new-entity-dialog.component.css" />
     <Content Include="publicis-ddm-frontend\src\app\add-new-entity-dialog\add-new-entity-dialog.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\add-uda-repeater\add-uda-repeater.component.css" />
     <Content Include="publicis-ddm-frontend\src\app\add-uda-repeater\add-uda-repeater.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\app.component.css" />
     <Content Include="publicis-ddm-frontend\src\app\app.component.html" />
+    <Content Include="publicis-ddm-frontend\src\app\confirmation-dialog\confirmation-dialog.component.css" />
+    <Content Include="publicis-ddm-frontend\src\app\confirmation-dialog\confirmation-dialog.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.css" />
     <Content Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.html" />
     <Content Include="publicis-ddm-frontend\src\app\entity-form\entity-form.component.css" />
@@ -252,6 +256,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="publicis-ddm-frontend\e2e\src\app.e2e-spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\add-attributes-dialog\add-attributes-dialog.component.spec.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\add-attributes-dialog\add-attributes-dialog.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\add-new-entity-dialog\add-new-entity-dialog.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\add-new-entity-dialog\add-new-entity-dialog.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\add-uda-repeater\add-uda-repeater.component.spec.ts" />
@@ -260,6 +266,8 @@
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\app.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\app.module.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\confirmation-dialog\confirmation-dialog.component.spec.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\confirmation-dialog\confirmation-dialog.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-details\entity-details.component.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\entity-dialog-data.ts" />
@@ -280,6 +288,8 @@
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\http-requests-helper.service.spec.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\http-requests-helper.service.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\app\service-interceptor.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\udas-helper.service.spec.ts" />
+    <TypeScriptCompile Include="publicis-ddm-frontend\src\app\udas-helper.service.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\environments\environment.ts" />
     <TypeScriptCompile Include="publicis-ddm-frontend\src\main.ts" />

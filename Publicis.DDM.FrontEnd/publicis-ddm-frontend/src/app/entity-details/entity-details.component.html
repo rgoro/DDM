@@ -5,7 +5,7 @@
   </div>
   <div class="btn-group mr-2" role="group">
     <div class="btn-group" role="group">
-      <button type="button" [disabled]="disabled" class="btn btn-secondary">
+      <button type="button" (click)="addAttributes()" [disabled]="disabled" class="btn btn-secondary">
         ADD ATTRIBUTES
       </button>
     <button type="button" class="btn btn-secondary" (click)="save()" [disabled]="disabled">SAVE</button>

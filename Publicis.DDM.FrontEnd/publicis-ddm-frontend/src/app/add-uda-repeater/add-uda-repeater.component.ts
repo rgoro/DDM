@@ -39,10 +39,10 @@ export class AddUdaRepeaterComponent implements OnInit {
   addValue(value: string, index: number) {
     this.userDefinedAttributes[index][1] = value;
   }
-
   removeUDA(index: number) {
     this.userDefinedAttributes.splice(index, 1);
   }
+  
   ngOnInit() {
   }
 

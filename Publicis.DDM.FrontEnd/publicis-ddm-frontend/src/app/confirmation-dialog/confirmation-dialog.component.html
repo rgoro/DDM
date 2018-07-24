@@ -1,0 +1,17 @@
+<div>
+  <h6>{{ title }}</h6>
+  <span [innerHtml]="innerHtml"></span>
+  <br/> <br/>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        <button mat-button (click)="discard()">Cancel</button>
+      </div>
+    </div>
+    <div class="col-6">
+      <div>
+        <button mat-button (click)="confirm()">Ok!</button>
+      </div>
+    </div>
+  </div>
+</div>
