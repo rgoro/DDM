@@ -49,7 +49,7 @@ export class EntityPanelComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(
       id => {
-        if (id.length > 0) 
+        if (id && id.length > 0) 
         {
           this.entityService.getById(this.entityType, id).subscribe(
             entity => {
